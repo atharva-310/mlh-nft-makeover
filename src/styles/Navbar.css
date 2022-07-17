@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "art-font";   /*Can be any text*/
+    src: local("ChalkHandLetteringShaded"),
+      url("../fonts/ChalkHandLetteringShaded.ttf") format("truetype");
+  }
+.art-heading{
+    font-family: "art-font";
+    font-size: 35px;
+    color: white;
+}

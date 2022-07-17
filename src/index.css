@@ -1,0 +1,5 @@
+html, body{
+    overflow-x: hidden;
+    min-height: 100vh;
+    height: 100vh;
+}
