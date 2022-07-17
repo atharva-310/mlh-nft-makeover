@@ -1,11 +1,11 @@
-import { Box, Button, Center, Heading,Image, Text,useColorMode } from '@chakra-ui/react'
+import { Box, Button, Center,Link, Heading,Image, Text,useColorMode } from '@chakra-ui/react'
 import { makeUseVisualState } from 'framer-motion'
 import React from 'react'
 import carnival from "../images/carnival-mask.png"
 
 export const ProductCard = (props) => {
     const {colorMode} = useColorMode()
-   
+    console.log(props)
   return (
     <Box 
         border={`5px solid ${colorMode === "light" ? "black": "white"}`}
@@ -36,15 +36,22 @@ export const ProductCard = (props) => {
             display="flex"
             justifyContent="space-evenly"
         >
-            {/* <Button 
-                width="40%"
+            
+            <Link 
+            width="40%"
+            href={`https://diamondapp.com/posts/${props.postId}`} isExternal>
+            <Button 
+                width="90%"
                 variant="solid"
                 colorScheme="yellow"
+                
             >
-                Bid 
-            </Button> */}
+                Get Post  
+            </Button>
+            </Link>
+            
             <Button
-                 width="90%"
+                 width="40%"
                  variant="solid"
                  colorScheme="teal"
                  onClick={()=>{

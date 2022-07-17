@@ -31,6 +31,7 @@ export const MakeUp = ({changeUrl}) => {
       // console.log(post)
       return (
         <ProductCard
+          postId = {post.PostHashHex}
           type="headWear"
           title={post.Body}
           imageUrl={post.ImageURLs[0]}
@@ -42,6 +43,7 @@ export const MakeUp = ({changeUrl}) => {
     // console.log(post)
     return (
       <ProductCard
+      postId = {post.PostHashHex}
         type="eyeWear"
         title={post.Body}
         imageUrl={post.ImageURLs[0]}

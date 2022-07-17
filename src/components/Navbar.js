@@ -32,7 +32,7 @@ export const Navbar = (props) => {
                 colorScheme={!props.createNftON ? "whatsapp" : "red"}
                 onClick={()=>{props.setCreateNft(prevState => !prevState)}}
             >
-                {!props.createNftON ? "Create NFT": "Stop Creating"}
+                {!props.createNftON ? "Create Post": "Stop Creating"}
             </Button>
             <Button
                 variant="solid"

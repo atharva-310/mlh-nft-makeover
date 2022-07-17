@@ -11,16 +11,16 @@ import {
   theme,
   GridItem,
   Button,
+  Heading,
 } from '@chakra-ui/react';
 import './index.css'
 import { Logo } from './Logo';
 import { Navbar } from './components/Navbar';
 import CreateNft from './components/createNft';
-import HandDetection from "./components/handDetection"
+
 import FaceDetection from "./components/faceDetection"
 import { MakeUp } from './components/makeUp';
-import PoseDetection from "./components/poseDectection" 
-import HolisticDetection from './components/holistic';
+
 function App() {
   const [userLoginInfo, setLoginInfo] = useState(null);
     const [isLoggedIn, setLogin] = useState(userLoginInfo === null ? false : true) 
@@ -73,7 +73,15 @@ function App() {
           bg="#141414"
           ref={camBoxRef}
         >
-          
+          {(tryingImages.headWear === "" && tryingImages.eyeWear === "" ) ?
+            <Heading color="white">
+              Select the Makeovers
+            </Heading>
+            :
+            <Heading color="white">
+              Start The live Preview
+            </Heading>
+          }
           {webCamON && <FaceDetection tryingImages={tryingImages} width={camBoxRef.current.clientWidth} height={camBoxRef.current.clientHeight} />}
           
           {/* {webCamActive && <WebCam width={camBoxRef.current.offsetWidth} height={camBoxRef.current.offsetHeight} />} */}

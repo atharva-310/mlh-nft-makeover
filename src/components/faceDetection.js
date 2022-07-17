@@ -2,7 +2,7 @@ import React, {createRef, useEffect} from 'react'
 import * as cam from "@mediapipe/camera_utils"
 import {FaceMesh, FACEMESH_TESSELATION, FACEMESH_RIGHT_EYE,FACEMESH_RIGHT_EYEBROW, FACEMESH_RIGHT_IRIS , FACEMESH_LEFT_EYE, FACEMESH_LEFT_EYEBROW, FACEMESH_LEFT_IRIS , FACEMESH_FACE_OVAL, FACEMESH_LIPS } from "@mediapipe/face_mesh/face_mesh"
 import * as draw from "@mediapipe/drawing_utils"
-
+import {Box, Heading } from '@chakra-ui/react'
 // import ben10 from "../ben10.jpg";
 // import ring from "../nbaRing.png"
 
@@ -96,8 +96,16 @@ function FaceDetection(props) {
 
         </canvas>
         {/* <img src={ben10}  /> */}
-        <img src={props.tryingImages.eyeWear} ref={eyeRef}  />
-        <img src={props.tryingImages.headWear} ref={headRef}  />
+        <Heading >
+          Your Selection
+        </Heading>
+        <Box
+          display="flex"
+          
+        >
+          <img src={props.tryingImages.eyeWear} ref={eyeRef}  />
+          <img src={props.tryingImages.headWear} ref={headRef}  />
+        </Box>
     </div>
   )
 }

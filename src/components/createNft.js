@@ -40,10 +40,9 @@ export default function CreateNft(props) {
            console.log(response)
 
     }
-    async function createNft(){
-
-    }
+    
     async function createPost(){
+       
         console.log(validator.isURL(formData.imageUrl))
         if (!validator.isURL(formData.imageUrl) || formData.title === "" || formData.description === "") {
             window.alert("Fill all form fields")
@@ -52,7 +51,7 @@ export default function CreateNft(props) {
             const request = {
                 "UpdaterPublicKeyBase58Check": props.userLoginInfo.key,
                 "BodyObj": {
-                  "Body": "" ,
+                  "Body": `${formData.title}: ${formData.description}` ,
                   "VideoURLs": [],
                   "ImageURLs": [formData.imageUrl]
                 },
@@ -60,7 +59,15 @@ export default function CreateNft(props) {
 
               };
                const response = await deso.posts.submitPost(request);
-               console.log(response)
+               window.alert("Post created")
+
+               window.open(`https://diamondapp.com/posts/${response.constructedTransactionResponse.PostHashHex}`, '_blank');
+        
+               setFormData({
+                title: "",
+                description: "",
+                imageUrl: " Upload Image"
+                });
 
           }
     }
@@ -210,9 +217,9 @@ export default function CreateNft(props) {
                 colorScheme="green"
                 onClick={createPost}
             >
-            Create NFT 
+            Create Diamond Post 
             </Button>
-            <Button
+            {/* <Button
                 size="lg"
                 fontSize="30px"
                 fontWeight="700"
@@ -220,7 +227,7 @@ export default function CreateNft(props) {
                 onClick={daoCoins}
             >
                 Mint Coins 
-            </Button>
+            </Button> */}
             {/* <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
                 Nice Chair, pink
             </Heading>
